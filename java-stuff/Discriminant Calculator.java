@@ -1,3 +1,5 @@
+package week01;
+
 import java.util.Scanner;
 
 public class Workspace {
@@ -8,21 +10,29 @@ public class Workspace {
 		System.out.println("Please enter the coefficient of x^2:");
 		
 		// Take the input and turn it into a byte
-		String coefficent_of_xsquared = input.nextLine();
-		byte a = Byte.parseByte(coefficent_of_xsquared);
+		int coefficent_of_xsquared = input.nextInt();
 		//
 		System.out.println("Please enter the coefficient of x:");
-		String coefficient_of_x = input.nextLine();
-		byte b = Byte.parseByte(coefficient_of_x);
+		int coefficient_of_x = input.nextInt();
 		//
 		System.out.println("Please enter the constant term:");
-		String constant = input.nextLine();
-		byte c = Byte.parseByte(constant);
+		int constant = input.nextInt();
+
 		
 		// Calculate discriminant
-		int discriminant = (b * b) - (4 * a * c);
+		int discriminant = (coefficient_of_x * coefficient_of_x) - (4 * coefficent_of_xsquared * constant);
 		
-		System.out.println("The discriminant of your equation is: " + discriminant);
+		if (discriminant < 0) {
+			System.out.println("The discriminant of your equation is: " + discriminant + " hence there are no real solutions");
+		}
+		else if (discriminant > 0) {
+			System.out.println("The discriminant of your equation is: " + discriminant + " hence there are real solutions");
+		}
+		else if (discriminant == 0) {
+			System.out.println("The discriminant of your equation is: " + discriminant + " hence there is one real solution");
+		}
+		
 		
 	}
 }
+
